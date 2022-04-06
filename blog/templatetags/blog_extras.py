@@ -17,14 +17,14 @@ def model_type(value):
 def get_posted_at_display(posted_at):
     seconds_ago = (timezone.now() - posted_at).total_seconds()
     if seconds_ago <= HOUR:
-        return f'Publié il y a {int(seconds_ago // MINUTE)} minutes.'
+        return f'Posted {int(seconds_ago // MINUTE)} minutes ago.'
     elif seconds_ago <= DAY:
-        return f'Publié il y a {int(seconds_ago // HOUR)} heures.'
-    return f'Publié le {posted_at.strftime("%d %b %y à %Hh%M")}'
+        return f'Posted {int(seconds_ago // HOUR)} heures ago.'
+    return f'Posted at {posted_at.strftime("%d %b %y à %Hh%M")}'
 
 
 @register.simple_tag(takes_context=True)
 def get_poster_display(context, user):
     if user == context['user']:
-        return 'vous'
+        return 'you'
     return user.username
