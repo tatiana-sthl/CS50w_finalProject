@@ -1,18 +1,18 @@
 html {
-    font-family: Arial;
+    font-family: 'Alice', serif;
+    font-size: 120%;
 }
 
-/* The sidebar menu */
 .sidebar {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 220px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    height: 100%; 
+    width: 220px; 
+    position: fixed; 
+    z-index: 1;
+    top: 0; 
     left: 0;
-    background-color: #1d3030;
+    background-color: #3d8dc2;
     color:  #ffffe6;
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: hidden;
     padding-top: 15px;
     padding-left: 10px;
     padding-right: 10px;
@@ -38,11 +38,10 @@ html {
 
 .avatar {
     width: 80%;
-    border-radius: 10%;
+    border-radius: 50%;
+    border: 3px double #ffffe6;
     display: block;
     margin: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .grid-container {
@@ -56,3 +55,35 @@ html {
     width: 80%;
     border-radius: 5px;
 }
+
+.fyp, span {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    display: inline-block;
+    background-color: #3d8dc2;
+    border-radius: 10px;
+    border: 3px double #ffffe6;
+    color: #ffffe6;
+    text-align: center;
+    font-family: 'Alice', serif;
+    font-size: 18px;
+    padding: 5px;
+    width: 90px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  button:hover {
+    background-color: rgb(248, 182, 239);
+  }
+
+  .post_title {
+      font-size: x-large;
+  }

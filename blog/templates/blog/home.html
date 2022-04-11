@@ -1,15 +1,29 @@
 {% extends 'base.html' %}
 {% load blog_extras %}
-{% block content %}
-    <h2>For You Page</h2>
-    <div class="grid-container">
-        {% for instance in page_obj %}
-            {% if instance|model_type == 'Blog' %}
-                {% include 'blog/partials/blog_snippet.html' with blog=instance %}
-            {% elif instance|model_type == 'Photo' %}
-                {% include 'blog/partials/photo_snippet.html' with photo=instance %}
+    {% block content %}
+        <h2 class="fyp">For You Page</h2>
+        <span>
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
             {% endif %}
-        {% endfor %}
-    </div>
-    {% include 'partials/page_navigator.html' %}
-{% endblock content %}
+        
+            <span>
+                Page {{ page_obj.number }} on {{ page_obj.paginator.num_pages }}.
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+        <div class="grid-container">
+            {% for instance in page_obj %}
+                {% if instance|model_type == 'Blog' %}
+                    {% include 'blog/partials/blog_snippet.html' with blog=instance %}
+                {% elif instance|model_type == 'Photo' %}
+                    {% include 'blog/partials/photo_snippet.html' with photo=instance %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endblock content %}

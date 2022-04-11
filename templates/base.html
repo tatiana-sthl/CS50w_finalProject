@@ -3,6 +3,9 @@
     <head>
         <title>Ghibli's Network</title>
         <link rel="stylesheet" href="{% static 'app.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="sidebar">
@@ -21,7 +24,7 @@
                 {% endif %}
                 {% if perms.blog.add_photo %}
                     <p><a href="{% url 'photo_upload' %}">Upload Picture</a></p>
-                    <p><a href="{% url 'create_multiple_photos' %}">Uploas multiple pictures</a></p>
+                    <p><a href="{% url 'create_multiple_photos' %}">Upload multiple pictures</a></p>
                 {% endif %}
                 <p><a href="{% url 'follow_users' %}">Follow users</a></p>
                 <p><a href="{% url 'upload_profile_photo' %}">Change profile picture</a></p>
